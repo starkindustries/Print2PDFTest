@@ -42,7 +42,7 @@ class CustomPrintPageRenderer: UIPrintPageRenderer {
         let font = UIFont(name: "AmericanTypewriter-Bold", size: 30.0)
         
         // Specify some text attributes we want to apply to the header text.
-        let textAttributes = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor(red: 243.0/255, green: 82.0/255.0, blue: 30.0/255.0, alpha: 1.0), NSKernAttributeName: 7.5] as [String : Any]
+        let textAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): font!, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor(red: 243.0/255, green: 82.0/255.0, blue: 30.0/255.0, alpha: 1.0), convertFromNSAttributedStringKey(NSAttributedString.Key.kern): 7.5] as [String : Any]
         
         // Calculate the text size.
         let textSize = getTextSize(text: headerText as String, font: nil, textAttributes: textAttributes as [String : AnyObject]!)
@@ -55,7 +55,7 @@ class CustomPrintPageRenderer: UIPrintPageRenderer {
         let pointY = headerRect.size.height/2 - textSize.height/2
         
         // Draw the header text.
-        headerText.draw(at: CGPoint(x: pointX, y: pointY), withAttributes: textAttributes)
+        headerText.draw(at: CGPoint(x: pointX, y: pointY), withAttributes: convertToOptionalNSAttributedStringKeyDictionary(textAttributes))
     }
     
     
@@ -67,9 +67,9 @@ class CustomPrintPageRenderer: UIPrintPageRenderer {
         
         let centerX = footerRect.size.width/2 - textSize.width/2
         let centerY = footerRect.origin.y + self.footerHeight/2 - textSize.height/2
-        let attributes = [NSFontAttributeName: font!, NSForegroundColorAttributeName: UIColor(red: 205.0/255.0, green: 205.0/255.0, blue: 205.0/255, alpha: 1.0)]
+        let attributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): font!, convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor(red: 205.0/255.0, green: 205.0/255.0, blue: 205.0/255, alpha: 1.0)]
         
-        footerText.draw(at: CGPoint(x: centerX, y: centerY), withAttributes: attributes)
+        footerText.draw(at: CGPoint(x: centerX, y: centerY), withAttributes: convertToOptionalNSAttributedStringKeyDictionary(attributes))
         
         
         // Draw a horizontal line.
@@ -86,7 +86,7 @@ class CustomPrintPageRenderer: UIPrintPageRenderer {
     func getTextSize(text: String, font: UIFont!, textAttributes: [String: AnyObject]! = nil) -> CGSize {
         let testLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: self.paperRect.size.width, height: footerHeight))
         if let attributes = textAttributes {
-            testLabel.attributedText = NSAttributedString(string: text, attributes: attributes)
+            testLabel.attributedText = NSAttributedString(string: text, attributes: convertToOptionalNSAttributedStringKeyDictionary(attributes))
         }
         else {
             testLabel.text = text
@@ -98,4 +98,15 @@ class CustomPrintPageRenderer: UIPrintPageRenderer {
         return testLabel.frame.size
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

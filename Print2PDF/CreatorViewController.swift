@@ -184,7 +184,7 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
         var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath as IndexPath)
         
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "itemCell")
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: "itemCell")
         }
         
         cell.textLabel?.text = items[indexPath.row]["item"]
@@ -198,8 +198,8 @@ class CreatorViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
             items.remove(at: indexPath.row)
             tblInvoiceItems.reloadData()
             displayTotalAmount()

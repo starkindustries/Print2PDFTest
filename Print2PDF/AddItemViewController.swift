@@ -51,7 +51,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Custom Methods
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         if currentTextfield != nil {
             currentTextfield.resignFirstResponder()
             currentTextfield = nil
