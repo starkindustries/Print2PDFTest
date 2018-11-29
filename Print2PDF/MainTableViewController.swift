@@ -36,7 +36,7 @@ class MainTableViewController: UITableViewController {
         } else if indexPath.row == 1{
             cell.textLabel?.text = "Export PDF Immediately (UIWebView)"
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "Testing Using WKWebView"
+            cell.textLabel?.text = "Test Using WKWebView"
         }
         return cell
     }
