@@ -12,13 +12,22 @@ import MessageUI
 
 class PreviewViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    @IBOutlet weak var webPreview: UIWebView!
-    var HTMLContent: String!
-    var data: Data?
+    private var webPreview: UIWebView!
+    private var HTMLContent: String!
+    private var data: Data?
+    
+    public var exportImmediately: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // initialize the webView
+        webPreview = UIWebView(frame: UIScreen.main.bounds)
+        view = webPreview
+        
+        // Setup the PDF right barButtonItem
+        let pdfButton = UIBarButtonItem(title: "PDF", style: UIBarButtonItem.Style.plain, target: self, action: #selector(PreviewViewController.exportToPDF))
+        self.navigationItem.setRightBarButtonItems([pdfButton], animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,19 +51,26 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     */
 
-    @IBAction func exportToPDF(_ sender: AnyObject) {
-        data = HTMLComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+    @objc func exportToPDF(_ sender: AnyObject) {
+        if let export = exportImmediately, !export {
+            print("PDF EXPORTED (DELAYED)")
+            data = HTMLComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        }
         showOptionsAlert()
     }
     
     func loadHTMLTemplate() {
         if let invoiceHTML = HTMLComposer.renderHTML(), let path = HTMLComposer.pathToHTMLTemplate {
+            if let export = exportImmediately, export {
+                print("PDF EXPORTED IMMEDIATELY!")
+                data = HTMLComposer.exportHTMLContentToPDF(HTMLContent: invoiceHTML)
+            }
             let url = URL(fileURLWithPath: path)
             webPreview.loadHTMLString(invoiceHTML, baseURL: url)
             HTMLContent = invoiceHTML
         }
     }
-    
+
     func showOptionsAlert() {
         let alertController = UIAlertController(title: "Yeah!", message: "Your invoice has been successfully printed to a PDF file.\n\nWhat do you want to do now?", preferredStyle: UIAlertController.Style.alert)
         

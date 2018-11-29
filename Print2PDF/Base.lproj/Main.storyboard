@@ -9,46 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Preview View Controller-->
-        <scene sceneID="MbO-WJ-6zz">
-            <objects>
-                <viewController id="N0b-RX-mJe" customClass="PreviewViewController" customModule="Print2PDF" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XdU-Mo-vKd"/>
-                        <viewControllerLayoutGuide type="bottom" id="LeA-95-WR8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1dj-n8-uBZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ca-ak-dqG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="LeA-95-WR8" firstAttribute="top" secondItem="3Ca-ak-dqG" secondAttribute="bottom" id="RQI-Qq-5cJ"/>
-                            <constraint firstItem="3Ca-ak-dqG" firstAttribute="leading" secondItem="1dj-n8-uBZ" secondAttribute="leadingMargin" constant="-20" id="Soc-qi-4Dh"/>
-                            <constraint firstItem="3Ca-ak-dqG" firstAttribute="top" secondItem="XdU-Mo-vKd" secondAttribute="bottom" constant="-64" id="fYh-CT-2PF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3Ca-ak-dqG" secondAttribute="trailing" constant="-20" id="lJf-33-QOg"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Iqt-u4-Sd2">
-                        <barButtonItem key="rightBarButtonItem" title="PDF" id="UXX-tS-GQe">
-                            <connections>
-                                <action selector="exportToPDF:" destination="N0b-RX-mJe" id="2MI-xz-fXV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="webPreview" destination="3Ca-ak-dqG" id="WbG-xe-HXB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fbz-k9-D9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1439" y="164"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="k84-tD-0vU">
             <objects>
@@ -92,9 +52,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="N0b-RX-mJe" kind="show" identifier="ShowPreviewSegue" id="bbG-Cv-VRZ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -28,19 +28,24 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BasicDisclosureCell", for: indexPath)
         // Configure the cell...
-        cell.textLabel?.text = "Cell1"
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Delay PDF Export"
+        } else {
+            cell.textLabel?.text = "Export PDF Immediately"
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("CELL SELECTED: \(indexPath.description)")
-    }
-    
-    
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if indexPath.row == 0 {
+            let preview = PreviewViewController()
+            preview.exportImmediately = false
+            self.navigationController?.pushViewController(preview, animated: true)
+        } else {
+            let preview = PreviewViewController()
+            preview.exportImmediately = true
+            self.navigationController?.pushViewController(preview, animated: true)
+        }
     }
 }
