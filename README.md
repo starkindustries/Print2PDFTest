@@ -1,8 +1,28 @@
 # Print2PDF Test
 
-This code tests the difference between choosing to render a PDF immediately versus delaying the action until later. When rendering a PDF immediately, the images are not displayed in the PDF. When delayed, the images properly rendered. On inspecting the html strings that are sent to render, one will notice that the HTML strings are exactly the same.
+This code tests the difference between choosing to render a PDF before loading it into a webView versus delaying the action until after the webView is loaded. When rendering a PDF immediately, the images are not displayed in the PDF. When delayed, the images properly rendered. On inspecting the html strings that are sent to render, one will notice that the HTML strings are exactly the same.
 
-## Overview 
+The app also tests PDF rendering in a WKWebView. Even when the PDF render is delayed, the images do not show in the WKWebView.
+
+## HTML Template Details
+The template shows three items: 1) hello world text, 2) an image of the stack overflow icon pulled from imgur, and 3) a base64 encoded image of github's octocat.
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type">
+        <title>Print2PDF Test</title>
+    </head>
+    <body>
+        <h2>Hello World!</h2>
+        <p><img src="https://i.stack.imgur.com/GKbCl.png"></p>
+        <p><img src="data:image/png;base64,base64ImageString==" alt="base64-img"></p>
+    </body>
+</html>
+```
+
+## App Details
 The MainTableViewController has three options (three cells): 
 1) Delay PDF Export (UIWebView)
 2) Export PDF Immediately (UIWebView)
