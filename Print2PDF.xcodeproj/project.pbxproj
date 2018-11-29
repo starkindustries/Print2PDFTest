@@ -10,7 +10,6 @@
 		23EA133721AFF839000E664D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA133621AFF839000E664D /* MainTableViewController.swift */; };
 		C04F22BD1D1C32280090D56B /* HTMLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F22BC1D1C32280090D56B /* HTMLComposer.swift */; };
 		C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922201D0FFDE5000D4607 /* AppDelegate.swift */; };
-		C0C922261D0FFDE5000D4607 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C922241D0FFDE5000D4607 /* Main.storyboard */; };
 		C0C922281D0FFDE6000D4607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C922271D0FFDE6000D4607 /* Assets.xcassets */; };
 		C0C9222B1D0FFDE6000D4607 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */; };
 		C0C9223C1D10585C000D4607 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C0C922391D10585C000D4607 /* index.html */; };
@@ -22,7 +21,6 @@
 		C04F22BC1D1C32280090D56B /* HTMLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLComposer.swift; sourceTree = "<group>"; };
 		C0C9221D1D0FFDE5000D4607 /* Print2PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Print2PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C922201D0FFDE5000D4607 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0C922251D0FFDE5000D4607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0C922271D0FFDE6000D4607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0C9222A1D0FFDE6000D4607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0C9222C1D0FFDE6000D4607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 				23EA133621AFF839000E664D /* MainTableViewController.swift */,
 				C0C9223F1D105886000D4607 /* PreviewViewController.swift */,
 				C04F22BC1D1C32280090D56B /* HTMLComposer.swift */,
-				C0C922241D0FFDE5000D4607 /* Main.storyboard */,
 				C0C922271D0FFDE6000D4607 /* Assets.xcassets */,
 				C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */,
 				C0C9222C1D0FFDE6000D4607 /* Info.plist */,
@@ -144,7 +141,6 @@
 				C0C9223C1D10585C000D4607 /* index.html in Resources */,
 				C0C9222B1D0FFDE6000D4607 /* LaunchScreen.storyboard in Resources */,
 				C0C922281D0FFDE6000D4607 /* Assets.xcassets in Resources */,
-				C0C922261D0FFDE5000D4607 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,14 +161,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C0C922241D0FFDE5000D4607 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C0C922251D0FFDE5000D4607 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -299,7 +287,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.Print2PDF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -313,7 +301,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appcoda.Print2PDF;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

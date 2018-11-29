@@ -10,8 +10,12 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
 
+    let basicCellId: String = "BasicDisclosureCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: basicCellId)
+        self.title = "Print2PDF Test"
     }
 
     // MARK: - Table view data source
@@ -26,7 +30,8 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BasicDisclosureCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: basicCellId, for: indexPath)
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         // Configure the cell...
         if indexPath.row == 0 {
             cell.textLabel?.text = "Delay PDF Export"
@@ -41,10 +46,12 @@ class MainTableViewController: UITableViewController {
         if indexPath.row == 0 {
             let preview = PreviewViewController()
             preview.exportImmediately = false
+            preview.title = "Delay PDF Export"
             self.navigationController?.pushViewController(preview, animated: true)
         } else {
             let preview = PreviewViewController()
             preview.exportImmediately = true
+            preview.title = "Export PDF Immediately"
             self.navigationController?.pushViewController(preview, animated: true)
         }
     }

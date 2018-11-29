@@ -12,37 +12,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    let currencyCode = "eur"
     
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // init window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // init root view
+        let mainVC = MainTableViewController()
+        let rootVC = UINavigationController(rootViewController: mainVC)
+        
+        // Set window's root
+        guard let w = window else { return true }
+        w.rootViewController = rootVC
+        w.makeKeyAndVisible()
         return true
     }
-
-    
-    // MARK: Custom Methods
-    
-    class func getAppDelegate() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-    
-    
-    func getStringValueFormattedAsCurrency(value: String) -> String {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = NumberFormatter.Style.currency
-        numberFormatter.currencyCode = currencyCode
-        numberFormatter.maximumFractionDigits = 2
-        
-        let formattedValue = numberFormatter.string(from: NumberFormatter().number(from: value)!)
-        return formattedValue!
-    }
-    
-    
-    func getDocDir() -> String {
-        return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    }
-    
 }
-
