@@ -23,7 +23,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        createInvoiceAsHTML()
+        loadHTMLTemplate()
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,7 +47,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         showOptionsAlert()
     }
     
-    func createInvoiceAsHTML() {
+    func loadHTMLTemplate() {
         htmlComposer = HTMLComposer()
         if let invoiceHTML = htmlComposer.renderHTML() {
             webPreview.loadHTMLString(invoiceHTML, baseURL: NSURL(string: htmlComposer.pathToHTMLTemplate!)! as URL)
