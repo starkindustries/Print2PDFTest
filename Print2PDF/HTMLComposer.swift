@@ -1,9 +1,6 @@
 //
-//  InvoiceComposer.swift
-//  Print2PDF
-//
-//  Created by Gabriel Theodoropoulos on 23/06/16.
-//  Copyright © 2016 Appcoda. All rights reserved.
+//  HTMLComposer.swift
+// 
 //
 
 import UIKit
