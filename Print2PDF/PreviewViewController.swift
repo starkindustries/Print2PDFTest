@@ -13,8 +13,8 @@ import MessageUI
 class PreviewViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var webPreview: UIWebView!
-    var htmlComposer: HTMLComposer!
     var HTMLContent: String!
+    var data: Data?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +43,14 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     */
 
     @IBAction func exportToPDF(_ sender: AnyObject) {
-        htmlComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        data = HTMLComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         showOptionsAlert()
     }
     
     func loadHTMLTemplate() {
-        htmlComposer = HTMLComposer()
-        if let invoiceHTML = htmlComposer.renderHTML() {
-            webPreview.loadHTMLString(invoiceHTML, baseURL: NSURL(string: htmlComposer.pathToHTMLTemplate!)! as URL)
+        if let invoiceHTML = HTMLComposer.renderHTML(), let path = HTMLComposer.pathToHTMLTemplate {
+            let url = URL(fileURLWithPath: path)
+            webPreview.loadHTMLString(invoiceHTML, baseURL: url)
             HTMLContent = invoiceHTML
         }
     }
@@ -60,7 +60,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         
         // Preview button
         let actionPreview = UIAlertAction(title: "Preview it", style: UIAlertAction.Style.default) { (action) in
-            if let data = self.htmlComposer.data {
+            if let data = self.data {
                 let url = Bundle.main.bundleURL
                 self.webPreview.load(data, mimeType: "application/pdf", textEncodingName: "", baseURL: url)
             }
@@ -88,7 +88,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     func sendEmail() {
-        if MFMailComposeViewController.canSendMail(), let attachmentData = htmlComposer.data {
+        if MFMailComposeViewController.canSendMail(), let attachmentData = data {
             let mailComposeViewController = MFMailComposeViewController()
             mailComposeViewController.mailComposeDelegate = self
             mailComposeViewController.setSubject("Invoice")

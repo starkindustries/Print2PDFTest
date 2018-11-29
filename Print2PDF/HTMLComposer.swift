@@ -10,18 +10,13 @@ import UIKit
 
 class HTMLComposer: NSObject {
 
-    let pathToHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
-    let logoImageURL = "http://www.appcoda.com/wp-content/uploads/2015/12/blog-logo-dark-400.png"
-    var data: Data? = nil
+    static let pathToHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
+    static let logoImageURL = "http://www.appcoda.com/wp-content/uploads/2015/12/blog-logo-dark-400.png"
     
-    override init() {
-        super.init()
-    }
-    
-    func renderHTML() -> String? {
+    static func renderHTML() -> String? {
         do {
             // Load the invoice HTML template code into a String variable.
-            guard let filePath = pathToHTMLTemplate else { return nil }
+            guard let filePath = HTMLComposer.pathToHTMLTemplate else { return nil }
             var HTMLContent = try String(contentsOfFile: filePath)
             HTMLContent = HTMLContent.replacingOccurrences(of: "#LOGO_IMAGE#", with: logoImageURL)
             return HTMLContent
@@ -33,7 +28,7 @@ class HTMLComposer: NSObject {
     }
     
     
-    func exportHTMLContentToPDF(HTMLContent: String) {
+    static func exportHTMLContentToPDF(HTMLContent: String) -> Data? {
         // Specify the frame of the A4 page.
         let A4PageWidth: CGFloat = 595.2
         let A4PageHeight: CGFloat = 841.8
@@ -55,7 +50,7 @@ class HTMLComposer: NSObject {
         }
         UIGraphicsEndPDFContext()
         
-        data = pdfData as Data
+        return pdfData as Data
         
         // pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/Invoice\(invoiceNumber!).pdf"
         // pdfData.write(toFile: pdfFilename, atomically: true)
