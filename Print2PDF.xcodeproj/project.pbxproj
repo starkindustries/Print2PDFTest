@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23EA133721AFF839000E664D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA133621AFF839000E664D /* MainTableViewController.swift */; };
+		23EA133921B01BB3000E664D /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA133821B01BB3000E664D /* WebKitViewController.swift */; };
 		C04F22BD1D1C32280090D56B /* HTMLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F22BC1D1C32280090D56B /* HTMLComposer.swift */; };
 		C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922201D0FFDE5000D4607 /* AppDelegate.swift */; };
 		C0C922281D0FFDE6000D4607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C922271D0FFDE6000D4607 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		23EA133621AFF839000E664D /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		23EA133821B01BB3000E664D /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 		C04F22BC1D1C32280090D56B /* HTMLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLComposer.swift; sourceTree = "<group>"; };
 		C0C9221D1D0FFDE5000D4607 /* Print2PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Print2PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C922201D0FFDE5000D4607 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				C0C922201D0FFDE5000D4607 /* AppDelegate.swift */,
 				23EA133621AFF839000E664D /* MainTableViewController.swift */,
 				C0C9223F1D105886000D4607 /* PreviewViewController.swift */,
+				23EA133821B01BB3000E664D /* WebKitViewController.swift */,
 				C04F22BC1D1C32280090D56B /* HTMLComposer.swift */,
 				C0C922271D0FFDE6000D4607 /* Assets.xcassets */,
 				C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 				C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */,
 				C0C922401D105886000D4607 /* PreviewViewController.swift in Sources */,
 				C04F22BD1D1C32280090D56B /* HTMLComposer.swift in Sources */,
+				23EA133921B01BB3000E664D /* WebKitViewController.swift in Sources */,
 				23EA133721AFF839000E664D /* MainTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

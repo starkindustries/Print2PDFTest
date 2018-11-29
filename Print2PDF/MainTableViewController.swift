@@ -20,13 +20,11 @@ class MainTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,9 +32,11 @@ class MainTableViewController: UITableViewController {
         cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         // Configure the cell...
         if indexPath.row == 0 {
-            cell.textLabel?.text = "Delay PDF Export"
-        } else {
-            cell.textLabel?.text = "Export PDF Immediately"
+            cell.textLabel?.text = "Delay PDF Export (UIWebView)"
+        } else if indexPath.row == 1{
+            cell.textLabel?.text = "Export PDF Immediately (UIWebView)"
+        } else if indexPath.row == 2 {
+            cell.textLabel?.text = "WebKitView"
         }
         return cell
     }
@@ -48,11 +48,14 @@ class MainTableViewController: UITableViewController {
             preview.exportImmediately = false
             preview.title = "Delay PDF Export"
             self.navigationController?.pushViewController(preview, animated: true)
-        } else {
+        } else if indexPath.row == 1 {
             let preview = PreviewViewController()
             preview.exportImmediately = true
             preview.title = "Export PDF Immediately"
             self.navigationController?.pushViewController(preview, animated: true)
+        } else if indexPath.row == 2 {
+            let wkVC = WebKitViewController()
+            self.navigationController?.pushViewController(wkVC, animated: true)
         }
     }
 }
