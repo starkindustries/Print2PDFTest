@@ -70,7 +70,7 @@ class PreviewViewController: UIViewController {
                                                            items: invoiceInfo["items"] as! [[String: String]],
                                                            totalAmount: invoiceInfo["totalAmount"] as! String) {
             
-            webPreview.loadHTMLString(invoiceHTML, baseURL: NSURL(string: invoiceComposer.pathToInvoiceHTMLTemplate!)! as URL)
+            webPreview.loadHTMLString(invoiceHTML, baseURL: NSURL(string: invoiceComposer.pathToHTMLTemplate!)! as URL)
             HTMLContent = invoiceHTML
         }
     }
@@ -81,10 +81,15 @@ class PreviewViewController: UIViewController {
         let alertController = UIAlertController(title: "Yeah!", message: "Your invoice has been successfully printed to a PDF file.\n\nWhat do you want to do now?", preferredStyle: UIAlertController.Style.alert)
         
         let actionPreview = UIAlertAction(title: "Preview it", style: UIAlertAction.Style.default) { (action) in
+            if let data = self.invoiceComposer.data {
+                let url = Bundle.main.bundleURL
+                self.webPreview.load(data, mimeType: "application/pdf", textEncodingName: "", baseURL: url)
+            }
+            /*
             if let filename = self.invoiceComposer.pdfFilename, let url = URL(string: filename) {
                 let request = URLRequest(url: url)
                 self.webPreview.loadRequest(request)
-            }
+            }*/
         }
         
         let actionEmail = UIAlertAction(title: "Send by Email", style: UIAlertAction.Style.default) { (action) in
@@ -107,10 +112,10 @@ class PreviewViewController: UIViewController {
     
     
     func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
+        if MFMailComposeViewController.canSendMail(), let attachmentData = invoiceComposer.data {
             let mailComposeViewController = MFMailComposeViewController()
             mailComposeViewController.setSubject("Invoice")
-            mailComposeViewController.addAttachmentData(NSData(contentsOfFile: invoiceComposer.pdfFilename)! as Data, mimeType: "application/pdf", fileName: "Invoice")
+            mailComposeViewController.addAttachmentData(attachmentData, mimeType: "application/pdf", fileName: "Invoice")
             present(mailComposeViewController, animated: true, completion: nil)
         }
     }

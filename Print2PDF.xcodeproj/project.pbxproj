@@ -7,24 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23EA133721AFF839000E664D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA133621AFF839000E664D /* MainTableViewController.swift */; };
 		C04F22BD1D1C32280090D56B /* InvoiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F22BC1D1C32280090D56B /* InvoiceComposer.swift */; };
-		C091D2511D1D40CA008DBE68 /* CustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091D2501D1D40CA008DBE68 /* CustomPrintPageRenderer.swift */; };
 		C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922201D0FFDE5000D4607 /* AppDelegate.swift */; };
 		C0C922261D0FFDE5000D4607 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C922241D0FFDE5000D4607 /* Main.storyboard */; };
 		C0C922281D0FFDE6000D4607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C922271D0FFDE6000D4607 /* Assets.xcassets */; };
 		C0C9222B1D0FFDE6000D4607 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */; };
 		C0C922331D0FFE1B000D4607 /* InvoiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922321D0FFE1B000D4607 /* InvoiceListViewController.swift */; };
-		C0C922351D0FFE67000D4607 /* CreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922341D0FFE67000D4607 /* CreatorViewController.swift */; };
-		C0C922371D1002C4000D4607 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922361D1002C4000D4607 /* AddItemViewController.swift */; };
-		C0C9223C1D10585C000D4607 /* invoice.html in Resources */ = {isa = PBXBuildFile; fileRef = C0C922391D10585C000D4607 /* invoice.html */; };
-		C0C9223D1D10585C000D4607 /* last_item.html in Resources */ = {isa = PBXBuildFile; fileRef = C0C9223A1D10585C000D4607 /* last_item.html */; };
-		C0C9223E1D10585C000D4607 /* single_item.html in Resources */ = {isa = PBXBuildFile; fileRef = C0C9223B1D10585C000D4607 /* single_item.html */; };
+		C0C9223C1D10585C000D4607 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C0C922391D10585C000D4607 /* index.html */; };
 		C0C922401D105886000D4607 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9223F1D105886000D4607 /* PreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23EA133621AFF839000E664D /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		C04F22BC1D1C32280090D56B /* InvoiceComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceComposer.swift; sourceTree = "<group>"; };
-		C091D2501D1D40CA008DBE68 /* CustomPrintPageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPrintPageRenderer.swift; sourceTree = "<group>"; };
 		C0C9221D1D0FFDE5000D4607 /* Print2PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Print2PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C922201D0FFDE5000D4607 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C922251D0FFDE5000D4607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,11 +28,7 @@
 		C0C9222A1D0FFDE6000D4607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0C9222C1D0FFDE6000D4607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0C922321D0FFE1B000D4607 /* InvoiceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceListViewController.swift; sourceTree = "<group>"; };
-		C0C922341D0FFE67000D4607 /* CreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorViewController.swift; sourceTree = "<group>"; };
-		C0C922361D1002C4000D4607 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
-		C0C922391D10585C000D4607 /* invoice.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = invoice.html; sourceTree = "<group>"; };
-		C0C9223A1D10585C000D4607 /* last_item.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = last_item.html; sourceTree = "<group>"; };
-		C0C9223B1D10585C000D4607 /* single_item.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = single_item.html; sourceTree = "<group>"; };
+		C0C922391D10585C000D4607 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		C0C9223F1D105886000D4607 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,12 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				C0C922201D0FFDE5000D4607 /* AppDelegate.swift */,
+				23EA133621AFF839000E664D /* MainTableViewController.swift */,
 				C0C922321D0FFE1B000D4607 /* InvoiceListViewController.swift */,
-				C0C922341D0FFE67000D4607 /* CreatorViewController.swift */,
-				C0C922361D1002C4000D4607 /* AddItemViewController.swift */,
 				C0C9223F1D105886000D4607 /* PreviewViewController.swift */,
 				C04F22BC1D1C32280090D56B /* InvoiceComposer.swift */,
-				C091D2501D1D40CA008DBE68 /* CustomPrintPageRenderer.swift */,
 				C0C922241D0FFDE5000D4607 /* Main.storyboard */,
 				C0C922271D0FFDE6000D4607 /* Assets.xcassets */,
 				C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */,
@@ -89,9 +79,7 @@
 		C0C922381D105847000D4607 /* HTML Templates */ = {
 			isa = PBXGroup;
 			children = (
-				C0C922391D10585C000D4607 /* invoice.html */,
-				C0C9223A1D10585C000D4607 /* last_item.html */,
-				C0C9223B1D10585C000D4607 /* single_item.html */,
+				C0C922391D10585C000D4607 /* index.html */,
 			);
 			name = "HTML Templates";
 			sourceTree = "<group>";
@@ -156,12 +144,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C9223C1D10585C000D4607 /* invoice.html in Resources */,
-				C0C9223D1D10585C000D4607 /* last_item.html in Resources */,
+				C0C9223C1D10585C000D4607 /* index.html in Resources */,
 				C0C9222B1D0FFDE6000D4607 /* LaunchScreen.storyboard in Resources */,
 				C0C922281D0FFDE6000D4607 /* Assets.xcassets in Resources */,
 				C0C922261D0FFDE5000D4607 /* Main.storyboard in Resources */,
-				C0C9223E1D10585C000D4607 /* single_item.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,13 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C922371D1002C4000D4607 /* AddItemViewController.swift in Sources */,
-				C0C922351D0FFE67000D4607 /* CreatorViewController.swift in Sources */,
-				C091D2511D1D40CA008DBE68 /* CustomPrintPageRenderer.swift in Sources */,
 				C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */,
 				C0C922401D105886000D4607 /* PreviewViewController.swift in Sources */,
 				C0C922331D0FFE1B000D4607 /* InvoiceListViewController.swift in Sources */,
 				C04F22BD1D1C32280090D56B /* InvoiceComposer.swift in Sources */,
+				23EA133721AFF839000E664D /* MainTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -301,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
