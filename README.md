@@ -1,11 +1,11 @@
 # Print2PDF Test
 
-This code tests the difference between choosing to render a PDF before loading it into a webView versus delaying the action until after the webView is loaded. When rendering a PDF immediately, the images are not displayed in the PDF. When delayed, the images properly rendered. On inspecting the html strings that are sent to render, one will notice that the HTML strings are exactly the same.
+This code tests the difference between choosing to render a PDF before loading it into a webView versus delaying the action until after the webView is loaded. When rendering a PDF immediately, the images are not displayed in the PDF. When delayed, the images properly are rendered. On inspecting the HTML strings that are sent to render, one will notice that the HTML strings are exactly the same.
 
-The app also tests PDF rendering in a WKWebView. Even when the PDF render is delayed, the images do not show in the WKWebView.
+The app also tests PDF rendering in a WKWebView. Even when the PDF render is delayed, the images still do not show in the WKWebView. This is in contrast to the UIWebView where images do render when the action is delayed.
 
 ## HTML Template Details
-The template shows three items: 1) hello world text, 2) an image of the stack overflow icon pulled from imgur, and 3) a base64 encoded image of github's octocat.
+The template shows three items: 1) hello world text, 2) an image of the stack overflow icon pulled from imgur, and 3) a base64 encoded image of github's octocat. I can expect that item #2 does not get rendered because it is pulled from the cloud. However, even the base64 encoded image does not get rendered even though it is placed directly into the template.
 
 ```html
 <!DOCTYPE html>
@@ -70,10 +70,12 @@ The navigation bar has a "PDF" button on the right. When pressed, the below func
 ```
 
 ### Option 1: Delay Export, UIWebView Test
-Note that the images are properly displayed when the export call is delayed after the webView loads.
+The export to PDF call is delayed after the webView loads. Expectation: everything is displayed in the PDF. Reality: everything is displayed in the PDF. Successful test.
 
 ### Option 2: Immediate Export, UIWebView Test
-When the export function is called immediately, the images are not displayed at all.
+The export to PDF is called immediately. Expectation: everything is displayed in the PDF. Reality: only "Hello World" is displayed in the PDF. Failed test.
 
 ### Option 3: WKWebView Test
-Option 3 again displays the same HTML template as option 1 and 2. However, this time the template is loaded into a WKWebView. After loading the page, the html is saved to a local variable `HTMLContent` just like in option 1 (delayed export). When the PDF button is pressed, the PDF is exported and displayed. Note that the images are not rendered in the WKWebView.
+Option 3 again displays the same HTML template as option 1 and 2. However, this time the template is loaded into a WKWebView. After loading the page, the html is saved to a local variable `HTMLContent` just like in option 1 (delayed export). When the PDF button is pressed, the PDF is exported and displayed. 
+
+Expectation: everything is displayed in the PDF. Reality: only "Hello World" is displayed in the PDF. Failed test.
