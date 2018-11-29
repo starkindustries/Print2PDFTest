@@ -36,7 +36,7 @@ class MainTableViewController: UITableViewController {
         } else if indexPath.row == 1{
             cell.textLabel?.text = "Export PDF Immediately (UIWebView)"
         } else if indexPath.row == 2 {
-            cell.textLabel?.text = "WebKitView"
+            cell.textLabel?.text = "Testing Using WKWebView"
         }
         return cell
     }
@@ -55,6 +55,7 @@ class MainTableViewController: UITableViewController {
             self.navigationController?.pushViewController(preview, animated: true)
         } else if indexPath.row == 2 {
             let wkVC = WebKitViewController()
+            wkVC.title = "WKWebView"
             self.navigationController?.pushViewController(wkVC, animated: true)
         }
     }
