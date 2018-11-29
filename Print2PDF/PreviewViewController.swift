@@ -24,7 +24,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         view = webPreview
         
         // Setup the PDF right barButtonItem
-        let pdfButton = UIBarButtonItem(title: "PDF", style: UIBarButtonItem.Style.plain, target: self, action: #selector(PreviewViewController.exportToPDF))
+        let pdfButton = UIBarButtonItem(title: "PDF", style: UIBarButtonItem.Style.plain, target: self, action: #selector(PreviewViewController.didPressPDFButton))
         self.navigationItem.setRightBarButtonItems([pdfButton], animated: true)
     }
 
@@ -38,10 +38,11 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         // Dispose of any resources that can be recreated.
     }
 
-    @objc func exportToPDF(_ sender: AnyObject) {
+    @objc func didPressPDFButton(_ sender: AnyObject) {
         if let export = exportImmediately, !export {
             print("PDF EXPORTED (DELAYED)")
             data = HTMLComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+            print(HTMLContent)
         }
         showOptionsAlert()
     }
@@ -51,6 +52,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
             if let export = exportImmediately, export {
                 print("PDF EXPORTED IMMEDIATELY!")
                 data = HTMLComposer.exportHTMLContentToPDF(HTMLContent: invoiceHTML)
+                print(invoiceHTML)
             }
             let url = URL(fileURLWithPath: path)
             webPreview.loadHTMLString(invoiceHTML, baseURL: url)

@@ -1,4 +1,5 @@
 //
+// 
 //  HTMLComposer.swift
 // 
 //
@@ -8,7 +9,7 @@ import UIKit
 class HTMLComposer: NSObject {
 
     static let pathToHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
-    static let logoImageURL = "http://www.appcoda.com/wp-content/uploads/2015/12/blog-logo-dark-400.png"
+    static let logoImageURL = "https://i.stack.imgur.com/GKbCl.png"
     
     static func renderHTML() -> String? {
         do {
