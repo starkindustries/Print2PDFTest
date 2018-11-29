@@ -10,30 +10,21 @@ import UIKit
 import MessageUI
 
 
-class PreviewViewController: UIViewController {
+class PreviewViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var webPreview: UIWebView!
-    
-    var invoiceInfo: [String: AnyObject]!
-    
-    var invoiceComposer: InvoiceComposer!
-    
+    var htmlComposer: HTMLComposer!
     var HTMLContent: String!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         createInvoiceAsHTML()
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,73 +42,63 @@ class PreviewViewController: UIViewController {
     }
     */
 
-    // MARK: IBAction Methods
-    
-    
     @IBAction func exportToPDF(_ sender: AnyObject) {
-        invoiceComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        htmlComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         showOptionsAlert()
     }
     
-    
-    // MARK: Custom Methods
-    
     func createInvoiceAsHTML() {
-        invoiceComposer = InvoiceComposer()
-        if let invoiceHTML = invoiceComposer.renderInvoice(invoiceNumber: invoiceInfo["invoiceNumber"] as! String,
-                                                           invoiceDate: invoiceInfo["invoiceDate"] as! String,
-                                                           recipientInfo: invoiceInfo["recipientInfo"] as! String,
-                                                           items: invoiceInfo["items"] as! [[String: String]],
-                                                           totalAmount: invoiceInfo["totalAmount"] as! String) {
-            
-            webPreview.loadHTMLString(invoiceHTML, baseURL: NSURL(string: invoiceComposer.pathToHTMLTemplate!)! as URL)
+        htmlComposer = HTMLComposer()
+        if let invoiceHTML = htmlComposer.renderHTML() {
+            webPreview.loadHTMLString(invoiceHTML, baseURL: NSURL(string: htmlComposer.pathToHTMLTemplate!)! as URL)
             HTMLContent = invoiceHTML
         }
     }
     
-    
-    
     func showOptionsAlert() {
         let alertController = UIAlertController(title: "Yeah!", message: "Your invoice has been successfully printed to a PDF file.\n\nWhat do you want to do now?", preferredStyle: UIAlertController.Style.alert)
         
+        // Preview button
         let actionPreview = UIAlertAction(title: "Preview it", style: UIAlertAction.Style.default) { (action) in
-            if let data = self.invoiceComposer.data {
+            if let data = self.htmlComposer.data {
                 let url = Bundle.main.bundleURL
                 self.webPreview.load(data, mimeType: "application/pdf", textEncodingName: "", baseURL: url)
             }
             /*
-            if let filename = self.invoiceComposer.pdfFilename, let url = URL(string: filename) {
+            if let filename = self.htmlComposer.pdfFilename, let url = URL(string: filename) {
                 let request = URLRequest(url: url)
                 self.webPreview.loadRequest(request)
             }*/
         }
-        
+        // Send email button
         let actionEmail = UIAlertAction(title: "Send by Email", style: UIAlertAction.Style.default) { (action) in
             DispatchQueue.main.async {
                 self.sendEmail()
             }
         }
-        
+        // Nothing button
         let actionNothing = UIAlertAction(title: "Nothing", style: UIAlertAction.Style.default) { (action) in
-            
+            // Do nothing
         }
         
         alertController.addAction(actionPreview)
         alertController.addAction(actionEmail)
         alertController.addAction(actionNothing)
-        
         present(alertController, animated: true, completion: nil)
     }
     
-    
-    
     func sendEmail() {
-        if MFMailComposeViewController.canSendMail(), let attachmentData = invoiceComposer.data {
+        if MFMailComposeViewController.canSendMail(), let attachmentData = htmlComposer.data {
             let mailComposeViewController = MFMailComposeViewController()
+            mailComposeViewController.mailComposeDelegate = self
             mailComposeViewController.setSubject("Invoice")
             mailComposeViewController.addAttachmentData(attachmentData, mimeType: "application/pdf", fileName: "Invoice")
             present(mailComposeViewController, animated: true, completion: nil)
         }
     }
     
+    // MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

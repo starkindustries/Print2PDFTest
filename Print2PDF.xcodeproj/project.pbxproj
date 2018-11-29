@@ -8,26 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		23EA133721AFF839000E664D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA133621AFF839000E664D /* MainTableViewController.swift */; };
-		C04F22BD1D1C32280090D56B /* InvoiceComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F22BC1D1C32280090D56B /* InvoiceComposer.swift */; };
+		C04F22BD1D1C32280090D56B /* HTMLComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F22BC1D1C32280090D56B /* HTMLComposer.swift */; };
 		C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922201D0FFDE5000D4607 /* AppDelegate.swift */; };
 		C0C922261D0FFDE5000D4607 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C922241D0FFDE5000D4607 /* Main.storyboard */; };
 		C0C922281D0FFDE6000D4607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C922271D0FFDE6000D4607 /* Assets.xcassets */; };
 		C0C9222B1D0FFDE6000D4607 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */; };
-		C0C922331D0FFE1B000D4607 /* InvoiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C922321D0FFE1B000D4607 /* InvoiceListViewController.swift */; };
 		C0C9223C1D10585C000D4607 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C0C922391D10585C000D4607 /* index.html */; };
 		C0C922401D105886000D4607 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9223F1D105886000D4607 /* PreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23EA133621AFF839000E664D /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
-		C04F22BC1D1C32280090D56B /* InvoiceComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceComposer.swift; sourceTree = "<group>"; };
+		C04F22BC1D1C32280090D56B /* HTMLComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLComposer.swift; sourceTree = "<group>"; };
 		C0C9221D1D0FFDE5000D4607 /* Print2PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Print2PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C922201D0FFDE5000D4607 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C922251D0FFDE5000D4607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0C922271D0FFDE6000D4607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0C9222A1D0FFDE6000D4607 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0C9222C1D0FFDE6000D4607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0C922321D0FFE1B000D4607 /* InvoiceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvoiceListViewController.swift; sourceTree = "<group>"; };
 		C0C922391D10585C000D4607 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		C0C9223F1D105886000D4607 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,9 +63,8 @@
 			children = (
 				C0C922201D0FFDE5000D4607 /* AppDelegate.swift */,
 				23EA133621AFF839000E664D /* MainTableViewController.swift */,
-				C0C922321D0FFE1B000D4607 /* InvoiceListViewController.swift */,
 				C0C9223F1D105886000D4607 /* PreviewViewController.swift */,
-				C04F22BC1D1C32280090D56B /* InvoiceComposer.swift */,
+				C04F22BC1D1C32280090D56B /* HTMLComposer.swift */,
 				C0C922241D0FFDE5000D4607 /* Main.storyboard */,
 				C0C922271D0FFDE6000D4607 /* Assets.xcassets */,
 				C0C922291D0FFDE6000D4607 /* LaunchScreen.storyboard */,
@@ -160,8 +157,7 @@
 			files = (
 				C0C922211D0FFDE5000D4607 /* AppDelegate.swift in Sources */,
 				C0C922401D105886000D4607 /* PreviewViewController.swift in Sources */,
-				C0C922331D0FFE1B000D4607 /* InvoiceListViewController.swift in Sources */,
-				C04F22BD1D1C32280090D56B /* InvoiceComposer.swift in Sources */,
+				C04F22BD1D1C32280090D56B /* HTMLComposer.swift in Sources */,
 				23EA133721AFF839000E664D /* MainTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

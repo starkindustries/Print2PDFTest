@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InvoiceComposer: NSObject {
+class HTMLComposer: NSObject {
 
     let pathToHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
     let logoImageURL = "http://www.appcoda.com/wp-content/uploads/2015/12/blog-logo-dark-400.png"
